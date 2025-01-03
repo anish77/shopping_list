@@ -29,7 +29,7 @@ class _GroceryListState extends State<GroceryList> {
         'flutter-prep-53331-default-rtdb.europe-west1.firebasedatabase.app',
         'shopping-list.json');
     final response = await http.get(url);
-    //print(response.body);
+    print(response.body);
 
     final Map<String, dynamic> listData = jsonDecode(response.body);
 
@@ -55,18 +55,18 @@ class _GroceryListState extends State<GroceryList> {
   }
 
   void _addIdem() async {
-    /*final newItem = */ await Navigator.of(context).push<GroceryItem>(
+    final newItem = await Navigator.of(context).push<GroceryItem>(
       MaterialPageRoute(
         builder: (ctx) => const NewItem(),
       ),
     );
 
-    /* if (newItem == null) {
+    if (newItem == null) {
       return;
     }
     setState(() {
       _groceryItems.add(newItem);
-    });*/
+    });
   }
 
   void _removeItem(GroceryItem item) {
